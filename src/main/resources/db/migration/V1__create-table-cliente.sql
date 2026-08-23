@@ -5,5 +5,6 @@ CREATE TABLE cliente (
     dataNasc DATE,
     telefone CHAR(11),
     email VARCHAR(255) NOT NULL UNIQUE,
-    senha VARCHAR(255) NOT NULL
+    senha VARCHAR(255) NOT NULL,
+    ativo tinyint NOT NULL
 );

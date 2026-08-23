@@ -7,11 +7,11 @@ CREATE TABLE consulta (
    statusConsulta ENUM(
         'ativo',
         'cancelada',
-        'em andamento',
+        'emAndamento',
         'finalizada'
     ),
-  CONSTRAINT fk_consulta_cliente
-  FOREIGN KEY (cpfCliente) REFERENCES cliente(
-  CONSTRAINT fk_consulta_pet
+  /*CONSTRAINT fk_consulta_cliente*/
+  FOREIGN KEY (cpfCliente) REFERENCES cliente(cpf),
+  /*CONSTRAINT fk_consulta_pet*/
   FOREIGN KEY (idPet) REFERENCES pet(id)
 );
