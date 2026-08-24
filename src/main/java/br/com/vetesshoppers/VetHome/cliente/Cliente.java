@@ -34,6 +34,20 @@ public class Cliente {
         this.senha = dados.senha();
         this.ativo = true;
     }
+
+    public void atualizarCliente(DadosAtualizarCliente dados){
+        if(dados.nome() != null && !dados.nome().isBlank())
+            this.nome = dados.nome();
+        if(dados.cpf() != null && !dados.cpf().isBlank())
+            this.cpf = dados.cpf();
+        if(dados.dataNascimento() !=null)
+            this.dataNascimento = dados.dataNascimento();
+        if(dados.telefone() !=null && dados.telefone().isBlank())
+            this.telefone = dados.telefone();
+        if(dados.email() !=null && dados.email().isBlank())
+            this.email = dados.email();
+    }
+
     public void excluirCliente(){
         this.ativo = false;
     }

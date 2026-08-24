@@ -1,5 +1,6 @@
 package br.com.vetesshoppers.VetHome.cliente;
 
+import br.com.vetesshoppers.VetHome.repositories.ClienteRepository;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,12 @@ public class ClienteController {
 
     @PutMapping
     @Transactional
-    public void atualizaeCliente(@RequestBody @Valid DadosAtualizarCliente dados) {}
+    public void atualizaeCliente(@RequestBody @Valid DadosAtualizarCliente dados) {
+        var cliente = repository.getReferenceById(dados.id());
+        cliente.atualizarCliente(dados);
+    }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @Transactional
     public void deletarCliente(@PathVariable  Long id){
         var cliente = repository.getReferenceById(id);
