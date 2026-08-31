@@ -5,9 +5,8 @@ CREATE TABLE consulta (
    dataHora DATETIME,
    servicos VARCHAR(255) NOT NULL,
    statusConsulta ENUM(
-        'ativo',
+        'ativa',
         'cancelada',
-        'emAndamento',
         'finalizada'
     ),
   /*CONSTRAINT fk_consulta_cliente*/

@@ -1,7 +1,10 @@
 package br.com.vetesshoppers.VetHome.pets;
 
+import br.com.vetesshoppers.VetHome.pets.especie.Especie;
 import jakarta.persistence.*;
 import lombok.*;
+import java.time.LocalDate;
+
 @Table(name = "pet")
 @Entity(name = "pet")
 @Getter
@@ -13,8 +16,8 @@ public class Pet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String dataNascimento;
-    private String especie;
+    private LocalDate dataNascimento;
+    private Especie especie;
     private String raca;
     private String peso;
     private String convenio;

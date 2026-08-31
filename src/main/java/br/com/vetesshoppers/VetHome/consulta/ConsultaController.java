@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("cliente/consulta")
+@RequestMapping("consulta")
 @Tag(name="Consulta", description = "Gerenciamento das consultas ")
 public class ConsultaController {
 

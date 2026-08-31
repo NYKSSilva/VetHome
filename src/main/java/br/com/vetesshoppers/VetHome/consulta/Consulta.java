@@ -1,7 +1,7 @@
 package br.com.vetesshoppers.VetHome.consulta;
 
-import br.com.vetesshoppers.VetHome.cliente.DadosCadastroCliente;
 import br.com.vetesshoppers.VetHome.consulta.StatusConsulta.StatusConsulta;
+import br.com.vetesshoppers.VetHome.consulta.servicos.Servicos;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,7 +22,7 @@ public class Consulta {
     private String cpfCliente;
     private Long idPet;
     private LocalDateTime dataHora;
-    private String servicos;
+    private Servicos servicos;
     private StatusConsulta statusConsulta;
 
     public Consulta(DadosCriarConsulta dados){
