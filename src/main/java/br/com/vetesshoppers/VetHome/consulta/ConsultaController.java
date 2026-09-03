@@ -18,6 +18,7 @@ public class ConsultaController {
     @PostMapping
     @Transactional
     public void criarConsulta(@RequestBody DadosCriarConsulta dados) {
+
         repository.save(new Consulta(dados));
     }
 }

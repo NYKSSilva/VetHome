@@ -2,6 +2,7 @@ package br.com.vetesshoppers.VetHome.consulta;
 
 import br.com.vetesshoppers.VetHome.consulta.StatusConsulta.StatusConsulta;
 import br.com.vetesshoppers.VetHome.consulta.servicos.Servicos;
+import br.com.vetesshoppers.VetHome.pets.especie.Especie;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,6 +20,7 @@ public class Consulta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    @Column(name = "id")
     private int id;
+    private Especie especie;
     private String cpfCliente;
     private Long idPet;
     private LocalDateTime dataHora;

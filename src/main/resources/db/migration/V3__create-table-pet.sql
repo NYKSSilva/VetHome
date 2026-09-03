@@ -2,7 +2,7 @@ CREATE TABLE pet (
       id INT AUTO_INCREMENT PRIMARY KEY,
       nome VARCHAR(100) NOT NULL,
       dataNasc DATE,
-      especie ENUM('gato', 'cachorro') NOT NULL,
+      especie ENUM('GATO', 'CACHORRO') NOT NULL,
       raca VARCHAR(100),
       peso DECIMAL(5,2),
       convenio ENUM('PetLove', 'DogLife', 'Particular'),
