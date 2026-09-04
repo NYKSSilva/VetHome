@@ -9,19 +9,9 @@ import java.time.LocalDate;
 public record DadosAtualizarCliente(
         Long id,
 
-
         @NotBlank
         @Size(min= 3, max= 100)
         String nome,
-
-        @NotBlank
-        @Column(unique = true)
-        @Size(min= 11, max=11)
-        @CPF
-        String cpf,
-
-        @NotBlank
-        LocalDate dataNascimento,
 
         @Size(max=20)
         String telefone,

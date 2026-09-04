@@ -1,5 +1,6 @@
 package br.com.vetesshoppers.VetHome.cliente;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import org.hibernate.validator.constraints.br.CPF;
@@ -17,7 +18,7 @@ public record DadosCadastroCliente(
         @CPF
         String cpf,
 
-        @NotBlank
+        @JsonFormat(pattern = "dd/MM/yyyy", locale = "pt-BR")
         LocalDate dataNascimento,
 
         @Size(max=20)
