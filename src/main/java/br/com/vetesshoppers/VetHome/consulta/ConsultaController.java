@@ -1,8 +1,9 @@
 package br.com.vetesshoppers.VetHome.consulta;
 
-import br.com.vetesshoppers.VetHome.cliente.DadosListagemCliente;
+import br.com.vetesshoppers.VetHome.cliente.DadosAtualizarCliente;
 import br.com.vetesshoppers.VetHome.repositories.ConsultaRepository;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -28,7 +29,22 @@ public class ConsultaController {
 
     @GetMapping
     public Page<DadosListagemConsulta> listarClientes(@PageableDefault(size=6, sort= {"nome"}) Pageable paginacao){
-        return repository.findAllByAtivoTrue(paginacao)
-                .map(DadosListagemCliente::new);
+        return repository.findAllByStatusConsultaAtivoTrue(paginacao)
+                .map(DadosListagemConsulta::new);
     }
+
+    @PutMapping
+    @Transactional
+    public void atualizaeConsulta(@RequestBody @Valid DadosAtualizarConsulta dados) {
+        var consulta = repository.getReferenceById(dados.id());
+        consulta.atualizarConsulta(dados);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void deletarCliente(@PathVariable  Long id){
+        var cliente = repository.getReferenceById(id);
+        cliente.excluirCliente();
+    }
+
 }

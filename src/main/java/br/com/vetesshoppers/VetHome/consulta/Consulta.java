@@ -1,5 +1,6 @@
 package br.com.vetesshoppers.VetHome.consulta;
 
+import br.com.vetesshoppers.VetHome.cliente.DadosAtualizarCliente;
 import br.com.vetesshoppers.VetHome.consulta.StatusConsulta.StatusConsulta;
 import br.com.vetesshoppers.VetHome.consulta.servicos.Servicos;
 import br.com.vetesshoppers.VetHome.pets.especie.Especie;
@@ -23,6 +24,7 @@ public class Consulta {
     private Especie especie;
     private String cpfCliente;
     private Long idPet;
+    //OffsetDateTIme/ Instant (melhores escolhas para tratativa de horario, talvez eu mude no futuro)
     private LocalDateTime dataHora;
     private Servicos servicos;
     private StatusConsulta statusConsulta;
@@ -34,5 +36,16 @@ public class Consulta {
         this.servicos = dados.servicos();
         this.statusConsulta = StatusConsulta.ativo;
 
+    }
+
+    public void atualizarConsulta(DadosAtualizarConsulta dados){
+        if(dados.especie() != null)
+            this.especie = dados.especie();
+        if(dados.idPet() !=null)
+            this.idPet = dados.idPet();
+        if(dados.dataHora() !=null)
+            this.dataHora = dados.dataHora();
+        if(dados.servicos() !=null)
+            this.servicos = dados.servicos();
     }
 }
