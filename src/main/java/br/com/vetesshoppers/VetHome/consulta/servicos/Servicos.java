@@ -1,17 +1,31 @@
 package br.com.vetesshoppers.VetHome.consulta.servicos;
 
 public enum Servicos {
-    exame(ExameType.class),
-    vacina(VacinaType.class),
+    exameDog(ExameDogType.class),
+    exameCat(ExameCatType.class),
+    vacinaDog(VacinaDogType.class),
+    VacinaCat(VacinaCatType.class),
     atestado(null),
     microtipagem(null);
 
-    public enum ExameType{
+    public enum ExameDogType{
         exame_sangue,
         exame_urina
     }
 
-    public enum VacinaType {
+    public enum ExameCatType{
+        exame_sangue,
+        exame_urina
+    }
+
+    public enum VacinaDogType {
+        antirrabica,
+        gripe,
+        polivalente,
+        giardia
+    }
+
+    public enum VacinaCatType {
         antirrabica,
         gripe,
         polivalente,

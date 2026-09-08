@@ -1,6 +1,5 @@
 package br.com.vetesshoppers.VetHome.consulta;
 
-import br.com.vetesshoppers.VetHome.cliente.DadosAtualizarCliente;
 import br.com.vetesshoppers.VetHome.repositories.ConsultaRepository;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -8,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,7 +33,7 @@ public class ConsultaController {
 
     @PutMapping
     @Transactional
-    public void atualizaeConsulta(@RequestBody @Valid DadosAtualizarConsulta dados) {
+    public void atualizarConsulta(@RequestBody @Valid DadosAtualizarConsulta dados) {
         var consulta = repository.getReferenceById(dados.id());
         consulta.atualizarConsulta(dados);
     }
@@ -44,7 +42,9 @@ public class ConsultaController {
     @Transactional
     public void deletarCliente(@PathVariable  Long id){
         var cliente = repository.getReferenceById(id);
-        cliente.excluirCliente();
+        cliente.excluirConsulta();
     }
+
+
 
 }

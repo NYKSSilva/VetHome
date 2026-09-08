@@ -6,9 +6,9 @@ CREATE TABLE pet (
       raca VARCHAR(100),
       peso DECIMAL(5,2),
       convenio ENUM('PetLove', 'DogLife', 'Particular'),
-      cpfCliente CHAR(11) NOT NULL,
+      idCliente tinyint NOT NULL,
       ativo tinyint NOT NULL,
 
 --    CONSTRAINT fk_pet_cliente
-      FOREIGN KEY (cpfCliente) REFERENCES cliente(cpf)
+      FOREIGN KEY (idCliente) REFERENCES cliente(id)
 );

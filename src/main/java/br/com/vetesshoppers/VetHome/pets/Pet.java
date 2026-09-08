@@ -1,5 +1,7 @@
 package br.com.vetesshoppers.VetHome.pets;
 
+import br.com.vetesshoppers.VetHome.consulta.StatusConsulta.StatusConsulta;
+import br.com.vetesshoppers.VetHome.pets.convenio.Convenio;
 import br.com.vetesshoppers.VetHome.pets.especie.Especie;
 import jakarta.persistence.*;
 import lombok.*;
@@ -15,12 +17,44 @@ public class Pet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private LocalDate dataNascimento;
+    private String nome;
+    private LocalDate dataNasc;
     private Especie especie;
     private String raca;
-    private String peso;
-    private String convenio;
-    private String cpfCliente;
+    private Double peso;
+    private Convenio convenio;
+    private String idCliente;
     private boolean ativo;
+
+    public Pet(DadosCadastroPet dados){
+        this.nome = dados.nome();
+        this.dataNasc = dados.dataNasc();
+        this.especie = dados.especie();
+        this.raca = dados.raca();
+        this.peso = dados.peso();
+        this.convenio = dados.convenio();
+        this.idCliente = dados.idCliente();
+        this.ativo = true;
+    }
+
+    public void atualizarPet(DadosAtualizarPet dados){
+        if(dados.nome() != null && !dados.nome().isBlank())
+            this.nome = dados.nome();
+        if(dados.dataNasc() !=null)
+            this.dataNasc = dados.dataNasc();
+        if(dados.especie() !=null)
+            this.especie = dados.especie();
+        if(dados.raca() !=null && !dados.raca().isBlank())
+            this.raca = dados.raca();
+        if(dados.peso() !=null )
+            this.peso = dados.peso();
+        if(dados.convenio() !=null)
+            this.convenio = dados.convenio();
+
+    }
+
+    public void excluirPet(){
+        this.ativo = false;
+    }
+
 }

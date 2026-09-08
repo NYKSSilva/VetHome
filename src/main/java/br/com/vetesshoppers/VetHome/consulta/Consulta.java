@@ -1,6 +1,5 @@
 package br.com.vetesshoppers.VetHome.consulta;
 
-import br.com.vetesshoppers.VetHome.cliente.DadosAtualizarCliente;
 import br.com.vetesshoppers.VetHome.consulta.StatusConsulta.StatusConsulta;
 import br.com.vetesshoppers.VetHome.consulta.servicos.Servicos;
 import br.com.vetesshoppers.VetHome.pets.especie.Especie;
@@ -47,5 +46,9 @@ public class Consulta {
             this.dataHora = dados.dataHora();
         if(dados.servicos() !=null)
             this.servicos = dados.servicos();
+    }
+
+    public void excluirConsulta(){
+        this.statusConsulta = StatusConsulta.cancelada;
     }
 }

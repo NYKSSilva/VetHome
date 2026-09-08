@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("cliente")
-@Tag(name="Cliente", description = "Gerenciamento dos clientes ")
+@Tag(name="Cliente", description = "Gerenciamento dos cliente.")
 public class ClienteController {
 
     @Autowired
@@ -20,11 +20,13 @@ public class ClienteController {
 
     @PostMapping
     @Transactional
+    @Tag(name="Cadastro cliente", description = "Função de criação de cliente.")
     public void cadastrarCliente(@RequestBody @Valid DadosCadastroCliente dados) {
         repository.save(new Cliente(dados));
     }
 
     @GetMapping
+    @Tag(name="Listar clientes", description = "Acessar a lista de clientes existentes.")
     public Page<DadosListagemCliente> listarClientes(@PageableDefault(size=6, sort= {"nome"}) Pageable paginacao){
         return repository.findAllByAtivoTrue(paginacao)
                 .map(DadosListagemCliente::new);
@@ -32,6 +34,7 @@ public class ClienteController {
 
     @PutMapping
     @Transactional
+    @Tag(name="Atualizar Cliente", description = "Atualização de um usuario existente por id.")
     public void atualizaeCliente(@RequestBody @Valid DadosAtualizarCliente dados) {
         var cliente = repository.getReferenceById(dados.id());
         cliente.atualizarCliente(dados);
@@ -39,6 +42,7 @@ public class ClienteController {
 
     @DeleteMapping("/{id}")
     @Transactional
+    @Tag(name="Deletar cliente", description = "Deletando um cliente com o id na url.")
     public void deletarCliente(@PathVariable  Long id){
         var cliente = repository.getReferenceById(id);
         cliente.excluirCliente();
