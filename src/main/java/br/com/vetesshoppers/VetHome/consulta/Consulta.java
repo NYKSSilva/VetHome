@@ -21,17 +21,17 @@ public class Consulta {
 //    @Column(name = "id")
     private int id;
     private Especie especie;
-    private String cpfCliente;
+    private String cpf_cliente;
     private Long idPet;
     //OffsetDateTIme/ Instant (melhores escolhas para tratativa de horario, talvez eu mude no futuro)
-    private LocalDateTime dataHora;
+    private LocalDateTime data_hora;
     private Servicos servicos;
     private StatusConsulta statusConsulta;
 
     public Consulta(DadosCriarConsulta dados){
-        this.cpfCliente = dados.cpfCliente();
+        this.cpf_cliente = dados.cpfCliente();
         this.idPet = dados.idPet();
-        this.dataHora = LocalDateTime.now();
+        this.data_hora = LocalDateTime.now();
         this.servicos = dados.servicos();
         this.statusConsulta = StatusConsulta.ativo;
 
@@ -43,7 +43,7 @@ public class Consulta {
         if(dados.idPet() !=null)
             this.idPet = dados.idPet();
         if(dados.dataHora() !=null)
-            this.dataHora = dados.dataHora();
+            this.data_hora = dados.dataHora();
         if(dados.servicos() !=null)
             this.servicos = dados.servicos();
     }

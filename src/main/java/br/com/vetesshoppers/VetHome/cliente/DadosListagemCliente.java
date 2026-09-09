@@ -11,7 +11,7 @@ public record DadosListagemCliente(
         LocalDate dataNascimento
 ) {
     public  DadosListagemCliente(Cliente cliente){
-        this(cliente.getId(), cliente.getNome(), cliente.getEmail(), cliente.getTelefone(), cliente.getCpf(), cliente.getDataNascimento());
+        this(cliente.getId(), cliente.getNome(), cliente.getEmail(), cliente.getTelefone(), cliente.getCpf(), cliente.getData_nasc());
     }
 
 }

@@ -1,12 +1,12 @@
 CREATE TABLE consulta (
    id INT AUTO_INCREMENT PRIMARY KEY,
-   cpfCliente CHAR(11) NOT NULL,
-   idPet INT NOT NULL,
+   cpf_cliente CHAR(11) NOT NULL,
+   id_pet INT NOT NULL,
    especiePet ENUM(
        'GATO',
        'CACHORRO'
        ) NOT NULL,
-   dataHora DATETIME,
+   data_hora DATETIME,
    servicos VARCHAR(255) NOT NULL,
    statusConsulta ENUM(
         'ativa',
@@ -14,7 +14,7 @@ CREATE TABLE consulta (
         'finalizada'
     ) NOT NULL,
   /*CONSTRAINT fk_consulta_cliente*/
-  FOREIGN KEY (cpfCliente) REFERENCES cliente(cpf),
+  FOREIGN KEY (cpf_cliente) REFERENCES cliente(cpf),
   /*CONSTRAINT fk_consulta_pet*/
-  FOREIGN KEY (idPet) REFERENCES pet(id)
+  FOREIGN KEY (id_pet) REFERENCES pet(id)
 );

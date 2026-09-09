@@ -1,10 +1,7 @@
 package br.com.vetesshoppers.VetHome.pets;
 
-
 import br.com.vetesshoppers.VetHome.pets.convenio.Convenio;
 import br.com.vetesshoppers.VetHome.pets.especie.Especie;
-
-import java.time.LocalDateTime;
 
 public record DadosListagemPet(
         String nome,

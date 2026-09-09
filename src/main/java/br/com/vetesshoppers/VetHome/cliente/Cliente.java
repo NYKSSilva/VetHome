@@ -18,7 +18,7 @@ public class Cliente {
     private Long id;
     private String nome;
     private String cpf;
-    private LocalDate dataNascimento;
+    private LocalDate data_nasc;
     private String telefone;
     private String email;
     private String senha;
@@ -28,7 +28,7 @@ public class Cliente {
     public Cliente(DadosCadastroCliente dados){
         this.nome = dados.nome();
         this.cpf = dados.cpf();
-        this.dataNascimento = dados.dataNascimento();
+        this.data_nasc = dados.dataNascimento();
         this.telefone = dados.telefone();
         this.email = dados.email();
         this.senha = dados.senha();

@@ -1,6 +1,6 @@
 package br.com.vetesshoppers.VetHome.pets;
 
-import br.com.vetesshoppers.VetHome.consulta.StatusConsulta.StatusConsulta;
+import br.com.vetesshoppers.VetHome.cliente.Cliente;
 import br.com.vetesshoppers.VetHome.pets.convenio.Convenio;
 import br.com.vetesshoppers.VetHome.pets.especie.Especie;
 import jakarta.persistence.*;
@@ -18,22 +18,36 @@ public class Pet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private LocalDate dataNasc;
+    private LocalDate data_nasc;
+
+    @Enumerated(EnumType.STRING)
     private Especie especie;
     private String raca;
     private Double peso;
+
+    @Enumerated(EnumType.STRING)
     private Convenio convenio;
-    private String idCliente;
+
+    //   @ManyToOne
+    //    @JoinColumn(name = "cpfCliente")
+    //    private Cliente cliente;
+    //    @ManyToOne
+//    @JoinColumn(name = "cpfCliente")
+//    private Cliente cliente;
+
+    private String cpfCliente;
+
     private boolean ativo;
 
     public Pet(DadosCadastroPet dados){
         this.nome = dados.nome();
-        this.dataNasc = dados.dataNasc();
+        this.data_nasc = dados.dataNasc();
         this.especie = dados.especie();
         this.raca = dados.raca();
         this.peso = dados.peso();
         this.convenio = dados.convenio();
-        this.idCliente = dados.idCliente();
+        this.cpfCliente = dados.cpfCLiente();
+//        this.cliente = cliente;
         this.ativo = true;
     }
 
@@ -41,7 +55,7 @@ public class Pet {
         if(dados.nome() != null && !dados.nome().isBlank())
             this.nome = dados.nome();
         if(dados.dataNasc() !=null)
-            this.dataNasc = dados.dataNasc();
+            this.data_nasc = dados.dataNasc();
         if(dados.especie() !=null)
             this.especie = dados.especie();
         if(dados.raca() !=null && !dados.raca().isBlank())

@@ -2,6 +2,8 @@ package br.com.vetesshoppers.VetHome.pets;
 
 import br.com.vetesshoppers.VetHome.pets.convenio.Convenio;
 import br.com.vetesshoppers.VetHome.pets.especie.Especie;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDate;
 
@@ -9,6 +11,7 @@ import java.time.LocalDate;
 public record DadosAtualizarPet(
         Long id,
         String nome,
+        @JsonFormat(pattern = "dd/MM/yyyy", locale = "pt-BR")
         LocalDate dataNasc,
         Especie especie,
         String raca,

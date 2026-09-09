@@ -3,10 +3,8 @@ package br.com.vetesshoppers.VetHome.pets;
 import br.com.vetesshoppers.VetHome.pets.convenio.Convenio;
 import br.com.vetesshoppers.VetHome.pets.especie.Especie;
 import com.fasterxml.jackson.annotation.JsonFormat;
-
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
 
@@ -31,8 +29,12 @@ public record DadosCadastroPet(
         @NotBlank
         Convenio convenio,
 
+//        @NotBlank
+//        String idCliente
+
         @NotBlank
-        String idCliente
+        @Size(min = 11, max = 11)
+        String cpfCLiente
 
 ) {
 }

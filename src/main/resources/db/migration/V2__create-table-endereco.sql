@@ -6,9 +6,10 @@ CREATE TABLE endereco (
      bairro VARCHAR(100) NOT NULL,
      cidade VARCHAR(100) NOT NULL,
      cep CHAR(8) NOT NULL,
-     idCliente tinyint NOT NULL,
+--   idCliente tinyint NOT NULL,
+     cpf_cliente CHAR(11) NOT NULL,
      ativo tinyint NOT NULL,
 
     /*CONSTRAINT fk_endereco_cliente*/
-         FOREIGN KEY (idCliente) REFERENCES cliente(id)
+         FOREIGN KEY (cpf_cliente) REFERENCES cliente(cpf)
 );

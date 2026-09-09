@@ -24,9 +24,15 @@ public class PetController {
         repository.save(new Pet(dados));
     }
 
+//    @GetMapping
+//    public Page<DadosListagemPet> listarPet(@AuthenticationPrincipal Usuario usuarioLogado, @PageableDefault(size=6, sort= {"nome"}) Pageable paginacao){
+//        return repository.findAllByIdClienteAndAtivoTrue(usuarioLogado.getId(), paginacao)
+//                .map(DadosListagemPet::new);
+//    }
+
     @GetMapping
-    public Page<DadosListagemPet> listarPet( @PageableDefault(size=6, sort= {"nome"}) Pageable paginacao){
-        return repository.findAllByIdClienteAndAtivo(paginacao)
+    public Page<DadosListagemPet> listarPet( @RequestParam String cpfCliente, @PageableDefault(size=6, sort= {"nome"}) Pageable paginacao){
+        return repository.findAllByCpfClienteAndAtivoTrue(cpfCliente, paginacao)
                 .map(DadosListagemPet::new);
     }
 
@@ -39,7 +45,7 @@ public class PetController {
 
     @DeleteMapping("/{id}")
     @Transactional
-    public void excluirPet(@PathVariable  Long id){
+    public void excluirPet(@PathVariable Long id){
         var cliente = repository.getReferenceById(id);
         cliente.excluirPet();
     }

@@ -16,7 +16,7 @@ public record DadosListagemConsulta(
         StatusConsulta statusConsulta
 ) {
     public  DadosListagemConsulta(Consulta consulta){
-        this(consulta.getEspecie(), consulta.getCpfCliente(), consulta.getIdPet(), consulta.getDataHora(), consulta.getServicos(), consulta.getStatusConsulta());
+        this(consulta.getEspecie(), consulta.getCpf_cliente(), consulta.getIdPet(), consulta.getData_hora(), consulta.getServicos(), consulta.getStatusConsulta());
     }
 }
 
