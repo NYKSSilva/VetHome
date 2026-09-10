@@ -1,5 +1,7 @@
 package br.com.vetesshoppers.VetHome.endereco;
 
+import br.com.vetesshoppers.VetHome.pets.DadosAtualizarPet;
+import br.com.vetesshoppers.VetHome.pets.DadosCadastroPet;
 import jakarta.persistence.*;
 import lombok.*;
 @Table(name = "endereco")
@@ -22,4 +24,35 @@ public class Endereco {
     private String numero;
     private String cpfCliente;
     private boolean ativo;
+
+
+    public Endereco(DadosCadastroEndereco dados){
+        this.cep = dados.cep();
+        this.logradouro = dados.logradouro();
+        this.complemento = dados.complemento();
+        this.bairro = dados.bairro();
+        this.cidade = dados.cidade();
+        this.numero = dados.numero();
+        this.cpfCliente = dados.cpfCliente();
+//        this.cliente = cliente;
+        this.ativo = true;
+    }
+
+    public void atualizarEndereco(DadosAtualizarEndereco dados){
+        if(dados.cep() != null && !dados.cep().isBlank())
+            this.cep = dados.cep();
+        if(dados.logradouro() !=null  && !dados.logradouro().isBlank())
+            this.logradouro = dados.logradouro();
+        if(dados.complemento() !=null  && !dados.complemento().isBlank())
+            this.complemento = dados.complemento();
+        if(dados.bairro() !=null  && !dados.bairro().isBlank())
+            this.bairro = dados.bairro();
+        if(dados.cidade() !=null  && !dados.cidade().isBlank())
+            this.cidade = dados.cidade();
+        if(dados.numero() !=null  && !dados.numero().isBlank())
+            this.numero = dados.numero();
+
+    }
+
+    public void excluirEndereco(){this.ativo = false;}
 }
