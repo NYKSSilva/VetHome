@@ -4,7 +4,7 @@ public enum Servicos {
     exameDog(ExameDogType.class),
     exameCat(ExameCatType.class),
     vacinaDog(VacinaDogType.class),
-    VacinaCat(VacinaCatType.class),
+    vacinaCat(VacinaCatType.class),
     atestado(null),
     microtipagem(null);
 

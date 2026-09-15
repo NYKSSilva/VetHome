@@ -2,10 +2,10 @@ CREATE TABLE consulta (
    id INT AUTO_INCREMENT PRIMARY KEY,
    cpf_cliente CHAR(11) NOT NULL,
    id_pet INT NOT NULL,
-   especiePet ENUM(
+   especie_pet ENUM(
        'GATO',
        'CACHORRO'
-       ) NOT NULL,
+       ),
    data_hora DATETIME,
    servicos VARCHAR(255) NOT NULL,
    statusConsulta ENUM(

@@ -1,7 +1,7 @@
 package br.com.vetesshoppers.VetHome.consulta.StatusConsulta;
 
 public enum StatusConsulta {
-    ativo,
+    ativa,
     cancelada,
     finalizada,
 }

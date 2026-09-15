@@ -21,13 +21,12 @@ public class ConsultaController {
     @PostMapping
     @Transactional
     public void criarConsulta(@RequestBody DadosCriarConsulta dados) {
-
         repository.save(new Consulta(dados));
     }
 
     @GetMapping
     public Page<DadosListagemConsulta> listarClientes(@PageableDefault(size=6, sort= {"nome"}) Pageable paginacao){
-        return repository.findAllByStatusConsultaAtivoTrue(paginacao)
+        return repository.findAllByStatusConsultaAtivaTrue(paginacao)
                 .map(DadosListagemConsulta::new);
     }
 

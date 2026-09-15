@@ -1,0 +1,1 @@
+ALTER TABLE consulta RENAME COLUMN statusConsulta TO status_consulta;

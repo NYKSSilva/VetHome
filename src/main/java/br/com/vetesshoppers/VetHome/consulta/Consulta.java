@@ -20,12 +20,17 @@ public class Consulta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    @Column(name = "id")
     private int id;
+
+    @Column(name = "especiePet")
     private Especie especie;
     private String cpf_cliente;
     private Long idPet;
     //OffsetDateTIme/ Instant (melhores escolhas para tratativa de horario, talvez eu mude no futuro)
     private LocalDateTime data_hora;
+
     private Servicos servicos;
+
+    @Enumerated(EnumType.STRING)
     private StatusConsulta statusConsulta;
 
     public Consulta(DadosCriarConsulta dados){
@@ -33,7 +38,7 @@ public class Consulta {
         this.idPet = dados.idPet();
         this.data_hora = LocalDateTime.now();
         this.servicos = dados.servicos();
-        this.statusConsulta = StatusConsulta.ativo;
+        this.statusConsulta = StatusConsulta.ativa;
 
     }
 

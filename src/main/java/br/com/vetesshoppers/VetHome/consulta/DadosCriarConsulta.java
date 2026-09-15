@@ -6,15 +6,9 @@ import org.hibernate.validator.constraints.br.CPF;
 
 public record DadosCriarConsulta(
 
-        @NotBlank
-        @CPF
         String cpfCliente,
-
-        @NotBlank
         Long idPet,
-
-        @NotBlank
-        Servicos servicos
-
+        Servicos servicos,
+        String tipoDetalhamento
 ) {
 }
