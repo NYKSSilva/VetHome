@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("cliente/endereco")
+//deixar com que o adm possa atualizar as iformações.
 public class EnderecoController {
     @Autowired
     private EnderecoRepository repository;

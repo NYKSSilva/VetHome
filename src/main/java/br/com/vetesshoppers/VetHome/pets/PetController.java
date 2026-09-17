@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("cliente/pet")
+ //deixar com que o adm possa atualizar as informações
 public class PetController {
 
     @Autowired

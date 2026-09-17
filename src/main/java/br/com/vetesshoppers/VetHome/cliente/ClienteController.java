@@ -23,14 +23,14 @@ public class ClienteController {
     @Tag(name="Cadastro cliente", description = "Função de criação de cliente.")
     public void cadastrarCliente(@RequestBody @Valid DadosCadastroCliente dados) {
         repository.save(new Cliente(dados));
-    }
+    }//os dois podem
 
     @GetMapping
     @Tag(name="Listar clientes", description = "Acessar a lista de clientes existentes.")
     public Page<DadosListagemCliente> listarClientes(@PageableDefault(size=6, sort= {"nome"}) Pageable paginacao){
         return repository.findAllByAtivoTrue(paginacao)
                 .map(DadosListagemCliente::new);
-    }
+    }//Apenas para adm
 
     @PutMapping
     @Transactional
@@ -38,7 +38,7 @@ public class ClienteController {
     public void atualizaeCliente(@RequestBody @Valid DadosAtualizarCliente dados) {
         var cliente = repository.getReferenceById(dados.id());
         cliente.atualizarCliente(dados);
-    }
+    }//os dois podem
 
     @DeleteMapping("/{id}")
     @Transactional
@@ -46,5 +46,5 @@ public class ClienteController {
     public void deletarCliente(@PathVariable  Long id){
         var cliente = repository.getReferenceById(id);
         cliente.excluirCliente();
-    }
+    }//os dois podem
 }
