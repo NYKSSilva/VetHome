@@ -18,12 +18,11 @@ import java.time.LocalDateTime;
 public class Consulta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "id")
     private int id;
 
     @Column(name = "especiePet")
     private Especie especie;
-    private String cpf_cliente;
+    private Long idCliente;
     private Long idPet;
     //OffsetDateTIme/ Instant (melhores escolhas para tratativa de horario, talvez eu mude no futuro)
     private LocalDateTime data_hora;
@@ -34,7 +33,7 @@ public class Consulta {
     private StatusConsulta statusConsulta;
 
     public Consulta(DadosCriarConsulta dados){
-        this.cpf_cliente = dados.cpfCliente();
+        this.idCliente = dados.idCliente();
         this.idPet = dados.idPet();
         this.data_hora = LocalDateTime.now();
         this.servicos = dados.servicos();

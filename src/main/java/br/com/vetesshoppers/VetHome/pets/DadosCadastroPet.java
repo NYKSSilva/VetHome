@@ -29,12 +29,8 @@ public record DadosCadastroPet(
         @NotBlank
         Convenio convenio,
 
-//        @NotBlank
-//        String idCliente
-
         @NotBlank
-        @Size(min = 11, max = 11)
-        String cpfCLiente
+        Long idCliente
 
 ) {
 }

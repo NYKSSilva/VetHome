@@ -31,7 +31,7 @@ public class EnderecoController {
 
     @GetMapping
     public Page<DadosListagemEndereco> listarEndereco(@RequestParam String cpfCliente, @PageableDefault(size=6, sort= {"cidade"}) Pageable paginacao){
-        return repository.findAllByCpfClienteAndAtivoTrue(cpfCliente, paginacao)
+        return repository.findAllByIdClienteAndAtivoTrue(cpfCliente, paginacao)
                 .map(DadosListagemEndereco::new);
     }
 

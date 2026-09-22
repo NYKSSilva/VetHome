@@ -1,6 +1,5 @@
 package br.com.vetesshoppers.VetHome.pets;
 
-import br.com.vetesshoppers.VetHome.cliente.Cliente;
 import br.com.vetesshoppers.VetHome.pets.convenio.Convenio;
 import br.com.vetesshoppers.VetHome.pets.especie.Especie;
 import jakarta.persistence.*;
@@ -35,7 +34,7 @@ public class Pet {
 //    @JoinColumn(name = "cpfCliente")
 //    private Cliente cliente;
 
-    private String cpfCliente;
+    private Long idCliente;
 
     private boolean ativo;
 
@@ -46,8 +45,7 @@ public class Pet {
         this.raca = dados.raca();
         this.peso = dados.peso();
         this.convenio = dados.convenio();
-        this.cpfCliente = dados.cpfCLiente();
-//        this.cliente = cliente;
+        this.idCliente = dados.idCliente();
         this.ativo = true;
     }
 

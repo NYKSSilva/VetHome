@@ -23,11 +23,8 @@ public record DadosCadastroEndereco(
         @NotBlank
         String numero,
 
-//        @NotBlank
-//        String idCliente
-
         @NotBlank
-        @Size(min = 11, max = 11)
-        String cpfCliente
+        String idCliente
+
 ) {
 }

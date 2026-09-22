@@ -1,7 +1,7 @@
 ## Projeto VetHome - Agendamento veterianario
 
 ###Objetivo:
-Desenvolver o backend de um sistema de agendamento de consultas veterinarias facilitando o trabalho da nossa cliente e ajudando a facilitar os agendamentos para os clientes dela
+Desenvolver o backend de um sistema de agendamento de consultas veterinarias facilitando o trabalho da nossa usuario e ajudando a facilitar os agendamentos para os clientes dela
 
 ### Tecnologias usadas:
 

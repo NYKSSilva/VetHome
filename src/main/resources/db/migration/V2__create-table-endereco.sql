@@ -6,7 +6,7 @@ CREATE TABLE endereco (
      bairro VARCHAR(100) NOT NULL,
      cidade VARCHAR(100) NOT NULL,
      cep CHAR(8) NOT NULL,
-     id_usuario INT AUTO_INCREMENT,
+     id_usuario INT NOT NULL,
 --      cpf_usuario CHAR(11) NOT NULL,
      ativo tinyint NOT NULL,
 

@@ -33,7 +33,7 @@ public class PetController {
 
     @GetMapping
     public Page<DadosListagemPet> listarPet( @RequestParam String cpfCliente, @PageableDefault(size=6, sort= {"nome"}) Pageable paginacao){
-        return repository.findAllByCpfClienteAndAtivoTrue(cpfCliente, paginacao)
+        return repository.findAllByIdClienteAndAtivoTrue(cpfCliente, paginacao)
                 .map(DadosListagemPet::new);
     }
 

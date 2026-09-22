@@ -9,6 +9,6 @@ import java.util.Optional;
 
 public interface EnderecoRepository extends JpaRepository<Endereco, Long> {
     Page<Endereco> findAllByAtivoTrue(Pageable paginacao);
-    Page<Endereco> findAllByCpfClienteAndAtivoTrue(String cpfCliente, Pageable paginacao);
+    Page<Endereco> findAllByIdClienteAndAtivoTrue(String cpfCliente, Pageable paginacao);
     Optional<Endereco> findByIdAndAtivoTrue(Long id);
 }

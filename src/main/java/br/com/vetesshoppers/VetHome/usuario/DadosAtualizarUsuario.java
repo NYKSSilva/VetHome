@@ -1,12 +1,9 @@
-package br.com.vetesshoppers.VetHome.cliente;
+package br.com.vetesshoppers.VetHome.usuario;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import org.hibernate.validator.constraints.br.CPF;
 
-import java.time.LocalDate;
-
-public record DadosAtualizarCliente(
+public record DadosAtualizarUsuario(
         Long id,
 
         @NotBlank

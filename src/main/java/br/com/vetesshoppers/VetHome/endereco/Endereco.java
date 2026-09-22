@@ -22,7 +22,7 @@ public class Endereco {
     private String bairro;
     private String cidade;
     private String numero;
-    private String cpfCliente;
+    private String idCliente;
     private boolean ativo;
 
 
@@ -33,7 +33,7 @@ public class Endereco {
         this.bairro = dados.bairro();
         this.cidade = dados.cidade();
         this.numero = dados.numero();
-        this.cpfCliente = dados.cpfCliente();
+        this.idCliente = dados.idCliente();
 //        this.cliente = cliente;
         this.ativo = true;
     }

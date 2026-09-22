@@ -1,4 +1,4 @@
-package br.com.vetesshoppers.VetHome.cliente;
+package br.com.vetesshoppers.VetHome.usuario;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
@@ -7,7 +7,7 @@ import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
 
-public record DadosCadastroCliente(
+public record DadosCadastroUsuario(
         @NotBlank
         @Size(min= 3, max= 100)
         String nome,

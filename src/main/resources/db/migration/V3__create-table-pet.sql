@@ -7,7 +7,7 @@ CREATE TABLE pet (
       peso DECIMAL(5,2),
       convenio ENUM('PetLove', 'DogLife', 'Particular'),
 --       cpf_usuario CHAR(11) NOT NULL,
-      id_usuario tinyint NOT NULL,
+      id_usuario INT NOT NULL,
       ativo tinyint NOT NULL,
 
    FOREIGN KEY (id_usuario) REFERENCES usuarios(id)

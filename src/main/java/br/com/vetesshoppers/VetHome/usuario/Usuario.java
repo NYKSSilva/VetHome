@@ -1,18 +1,18 @@
-package br.com.vetesshoppers.VetHome.cliente;
+package br.com.vetesshoppers.VetHome.usuario;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
 
-@Table(name = "cliente")
-@Entity(name = "cliente")
+@Table(name = "usuarios")
+@Entity(name = "usuario")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Cliente {
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,12 +20,14 @@ public class Cliente {
     private String cpf;
     private LocalDate data_nasc;
     private String telefone;
+    @Enumerated(EnumType.STRING)
+    private Role role;
     private String email;
     private String senha;
     private boolean ativo;
 
 
-    public Cliente(DadosCadastroCliente dados){
+    public Usuario(DadosCadastroUsuario dados){
         this.nome = dados.nome();
         this.cpf = dados.cpf();
         this.data_nasc = dados.dataNascimento();
@@ -35,7 +37,7 @@ public class Cliente {
         this.ativo = true;
     }
 
-    public void atualizarCliente(DadosAtualizarCliente dados){
+    public void atualizarusuario(DadosAtualizarUsuario dados){
         if(dados.nome() != null && !dados.nome().isBlank())
             this.nome = dados.nome();
         if(dados.telefone() !=null && dados.telefone().isBlank())
@@ -44,7 +46,7 @@ public class Cliente {
             this.email = dados.email();
     }
 
-    public void excluirCliente(){
+    public void excluirUsuario(){
         this.ativo = false;
     }
 }
