@@ -1,5 +1,9 @@
-package br.com.vetesshoppers.VetHome.endereco;
+package br.com.vetesshoppers.VetHome.controller;
 
+import br.com.vetesshoppers.VetHome.endereco.DadosAtualizarEndereco;
+import br.com.vetesshoppers.VetHome.endereco.DadosCadastroEndereco;
+import br.com.vetesshoppers.VetHome.endereco.DadosListagemEndereco;
+import br.com.vetesshoppers.VetHome.endereco.Endereco;
 import br.com.vetesshoppers.VetHome.repositories.EnderecoRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

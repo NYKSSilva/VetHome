@@ -1,5 +1,9 @@
-package br.com.vetesshoppers.VetHome.consulta;
+package br.com.vetesshoppers.VetHome.controller;
 
+import br.com.vetesshoppers.VetHome.consulta.Consulta;
+import br.com.vetesshoppers.VetHome.consulta.DadosAtualizarConsulta;
+import br.com.vetesshoppers.VetHome.consulta.DadosCriarConsulta;
+import br.com.vetesshoppers.VetHome.consulta.DadosListagemConsulta;
 import br.com.vetesshoppers.VetHome.repositories.ConsultaRepository;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;

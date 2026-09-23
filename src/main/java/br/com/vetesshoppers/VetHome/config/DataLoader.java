@@ -1,8 +1,14 @@
 package br.com.vetesshoppers.VetHome.config;
 
+import br.com.vetesshoppers.VetHome.usuario.Role;
+import br.com.vetesshoppers.VetHome.usuario.Usuario;
+import br.com.vetesshoppers.VetHome.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
-public class DataLoader  implements CommandLineRunner{
+
+public class DataLoader  implements CommandLineRunner {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
@@ -11,10 +17,11 @@ public class DataLoader  implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
+
         // Criar usuário ADMIN se não existir
-        if (usuarioRepository.findByLoginAndAtivoTrue("admin").isEmpty()) {
+        if (usuarioRepository.findByEmailAndAtivoTrue("admin").isEmpty()) {
             Usuario admin = new Usuario();
-            admin.setLogin("admin");
+            admin.setEmail("admin");
             admin.setSenha(passwordEncoder.encode("admin"));
             admin.setRole(Role.ADMIN);
             admin.setAtivo(true);
@@ -23,9 +30,9 @@ public class DataLoader  implements CommandLineRunner{
         }
 
         // Criar usuário USER se não existir
-        if (usuarioRepository.findByLoginAndAtivoTrue("user").isEmpty()) {
+        if (usuarioRepository.findByEmailAndAtivoTrue("user").isEmpty()) {
             Usuario user = new Usuario();
-            user.setLogin("user");
+            user.setEmail("user");
             user.setSenha(passwordEncoder.encode("user"));
             user.setRole(Role.USER);
             user.setAtivo(true);

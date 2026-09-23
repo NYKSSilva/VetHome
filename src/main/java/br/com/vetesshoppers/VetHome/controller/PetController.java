@@ -1,6 +1,10 @@
-package br.com.vetesshoppers.VetHome.pets;
+package br.com.vetesshoppers.VetHome.controller;
 
 
+import br.com.vetesshoppers.VetHome.pets.DadosAtualizarPet;
+import br.com.vetesshoppers.VetHome.pets.DadosCadastroPet;
+import br.com.vetesshoppers.VetHome.pets.DadosListagemPet;
+import br.com.vetesshoppers.VetHome.pets.Pet;
 import br.com.vetesshoppers.VetHome.repositories.PetRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +36,7 @@ public class PetController {
 //    }
 
     @GetMapping
-    public Page<DadosListagemPet> listarPet( @RequestParam String cpfCliente, @PageableDefault(size=6, sort= {"nome"}) Pageable paginacao){
+    public Page<DadosListagemPet> listarPet(@RequestParam String cpfCliente, @PageableDefault(size=6, sort= {"nome"}) Pageable paginacao){
         return repository.findAllByIdClienteAndAtivoTrue(cpfCliente, paginacao)
                 .map(DadosListagemPet::new);
     }

@@ -1,4 +1,4 @@
-package br.com.vetesshoppers.VetHome.service;
+package br.com.vetesshoppers.VetHome.autenticacao;
 
 import br.com.vetesshoppers.VetHome.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +11,8 @@ public class AutenticacaoService implements UserDetailsService {
     private UsuarioRepository repository;
 
     @Override
-    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        return repository.findByLoginAndAtivoTrue(login)
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        return repository.findByEmailAndAtivoTrue(email)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado"));
     }
 }

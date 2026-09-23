@@ -34,6 +34,7 @@ public class Usuario {
         this.telefone = dados.telefone();
         this.email = dados.email();
         this.senha = dados.senha();
+        this.role = Role.USER;
         this.ativo = true;
     }
 
