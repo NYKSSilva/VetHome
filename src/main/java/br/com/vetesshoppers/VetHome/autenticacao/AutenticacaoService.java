@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 public class AutenticacaoService implements UserDetailsService {
+
     @Autowired
     private UsuarioRepository repository;
 

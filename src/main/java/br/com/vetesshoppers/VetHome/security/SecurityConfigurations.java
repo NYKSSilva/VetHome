@@ -35,8 +35,7 @@ public class SecurityConfigurations {
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
                 .authorizeHttpRequests(req -> {
                     // Endpoint público de email e cadastro
-                    req.requestMatchers("/email","/cadastro" ).permitAll();
-
+                    req.requestMatchers("/login","/cadastro" ).permitAll();
 
                     // Rotas de usuarios
                     req.requestMatchers(HttpMethod.GET, "/usuario", "/usuario/*").hasAnyRole("USER", "ADMIN");
