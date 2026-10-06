@@ -1,6 +1,7 @@
-package br.com.vetesshoppers.VetHome.cliente;
+package br.com.vetesshoppers.VetHome.controller;
 
 import br.com.vetesshoppers.VetHome.repositories.ClienteRepository;
+import br.com.vetesshoppers.VetHome.cliente.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 @RequestMapping("cliente")

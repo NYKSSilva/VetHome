@@ -1,5 +1,9 @@
-package br.com.vetesshoppers.VetHome.consulta;
+package br.com.vetesshoppers.VetHome.controller;
 
+import br.com.vetesshoppers.VetHome.consulta.Consulta;
+import br.com.vetesshoppers.VetHome.consulta.DadosAtualizarConsulta;
+import br.com.vetesshoppers.VetHome.consulta.DadosCriarConsulta;
+import br.com.vetesshoppers.VetHome.consulta.DadosListagemConsulta;
 import br.com.vetesshoppers.VetHome.repositories.ConsultaRepository;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -25,7 +29,7 @@ public class ConsultaController {
     }
 
     @GetMapping
-    public Page<DadosListagemConsulta> listarClientes(@PageableDefault(size=6, sort= {"nome"}) Pageable paginacao){
+    public Page<DadosListagemConsulta> listarConsulta(@PageableDefault(size=6, sort= {"nome"}) Pageable paginacao){
         return repository.findAllByStatusConsultaAtivaTrue(paginacao)
                 .map(DadosListagemConsulta::new);
     }
@@ -39,7 +43,7 @@ public class ConsultaController {
 
     @DeleteMapping("/{id}")
     @Transactional
-    public void deletarCliente(@PathVariable  Long id){
+    public void deletarConsulta(@PathVariable  Long id){
         var cliente = repository.getReferenceById(id);
         cliente.excluirConsulta();
     }
