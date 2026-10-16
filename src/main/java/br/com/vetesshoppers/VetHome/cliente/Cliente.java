@@ -2,7 +2,6 @@ package br.com.vetesshoppers.VetHome.cliente;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.time.LocalDate;
 
 @Table(name = "cliente")

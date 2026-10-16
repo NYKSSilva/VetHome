@@ -46,7 +46,7 @@ public class Pet {
         this.raca = dados.raca();
         this.peso = dados.peso();
         this.convenio = dados.convenio();
-        this.cpfCliente = dados.cpfCLiente();
+        this.cpfCliente = dados.cpfCliente();
 //        this.cliente = cliente;
         this.ativo = true;
     }

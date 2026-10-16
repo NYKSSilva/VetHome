@@ -1,7 +1,5 @@
 package br.com.vetesshoppers.VetHome.endereco;
 
-import br.com.vetesshoppers.VetHome.pets.DadosAtualizarPet;
-import br.com.vetesshoppers.VetHome.pets.DadosCadastroPet;
 import jakarta.persistence.*;
 import lombok.*;
 @Table(name = "endereco")

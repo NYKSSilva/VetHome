@@ -14,7 +14,7 @@ public record DadosCadastroPet(
         String nome,
 
         @NotBlank
-        @JsonFormat(pattern = "dd/MM/yyyy", locale = "pt-BR")
+        @JsonFormat(pattern = "yyyy-MM-dd")
         LocalDate dataNasc,
 
         @NotBlank
@@ -34,7 +34,7 @@ public record DadosCadastroPet(
 
         @NotBlank
         @Size(min = 11, max = 11)
-        String cpfCLiente
+        String cpfCliente
 
 ) {
 }

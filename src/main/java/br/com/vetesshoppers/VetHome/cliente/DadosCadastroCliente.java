@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import org.hibernate.validator.constraints.br.CPF;
-
 import java.time.LocalDate;
 
 public record DadosCadastroCliente(
@@ -18,7 +17,7 @@ public record DadosCadastroCliente(
         @CPF
         String cpf,
 
-        @JsonFormat(pattern = "dd/MM/yyyy", locale = "pt-BR")
+        @JsonFormat(pattern = "yyyy-MM-dd")
         LocalDate dataNascimento,
 
         @Size(max=20)
@@ -34,3 +33,4 @@ public record DadosCadastroCliente(
 
 ) {
 }
+//, locale = "pt-BR"

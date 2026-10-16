@@ -25,6 +25,7 @@ public class ClienteController {
     @Tag(name="Cadastro cliente", description = "Função de criação de cliente.")
     public void cadastrarCliente(@RequestBody @Valid DadosCadastroCliente dados) {
         repository.save(new Cliente(dados));
+
     }
 
     @GetMapping

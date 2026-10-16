@@ -25,6 +25,7 @@ public class ConsultaController {
     @PostMapping
     @Transactional
     public void criarConsulta(@RequestBody DadosCriarConsulta dados) {
+
         repository.save(new Consulta(dados));
     }
 
@@ -32,6 +33,7 @@ public class ConsultaController {
     public Page<DadosListagemConsulta> listarConsulta(@PageableDefault(size=6, sort= {"nome"}) Pageable paginacao){
         return repository.findAllByStatusConsultaAtivaTrue(paginacao)
                 .map(DadosListagemConsulta::new);
+
     }
 
     @PutMapping
