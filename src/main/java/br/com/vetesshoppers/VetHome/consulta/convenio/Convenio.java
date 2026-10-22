@@ -1,4 +1,4 @@
-package br.com.vetesshoppers.VetHome.pets.convenio;
+package br.com.vetesshoppers.VetHome.consulta.convenio;
 
 public enum Convenio {
     PetLove,

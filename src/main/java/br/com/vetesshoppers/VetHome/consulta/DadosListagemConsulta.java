@@ -1,7 +1,7 @@
 package br.com.vetesshoppers.VetHome.consulta;
 
-import br.com.vetesshoppers.VetHome.consulta.Consulta;
 import br.com.vetesshoppers.VetHome.consulta.StatusConsulta.StatusConsulta;
+import br.com.vetesshoppers.VetHome.consulta.convenio.Convenio;
 import br.com.vetesshoppers.VetHome.consulta.servicos.Servicos;
 import br.com.vetesshoppers.VetHome.pets.especie.Especie;
 
@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 
 public record DadosListagemConsulta(
         Especie especie,
+        Convenio convenio,
         String cpfCliente,
         Long idPet,
         LocalDateTime dataHora,
@@ -16,7 +17,7 @@ public record DadosListagemConsulta(
         StatusConsulta statusConsulta
 ) {
     public  DadosListagemConsulta(Consulta consulta){
-        this(consulta.getEspecie(), consulta.getCpf_cliente(), consulta.getIdPet(), consulta.getData_hora(), consulta.getServicos(), consulta.getStatusConsulta());
+        this(consulta.getEspecie(),consulta.getConvenio(), consulta.getCpf_cliente(), consulta.getIdPet(), consulta.getData_hora(), consulta.getServicos(), consulta.getStatusConsulta());
     }
 }
 

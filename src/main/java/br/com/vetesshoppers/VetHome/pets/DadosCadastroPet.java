@@ -1,7 +1,7 @@
 package br.com.vetesshoppers.VetHome.pets;
 
-import br.com.vetesshoppers.VetHome.pets.convenio.Convenio;
 import br.com.vetesshoppers.VetHome.pets.especie.Especie;
+import br.com.vetesshoppers.VetHome.pets.sexo.Sexo;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -21,13 +21,13 @@ public record DadosCadastroPet(
         Especie especie,
 
         @NotBlank
+        Sexo sexo,
+
+        @NotBlank
         String raca,
 
         @NotBlank
         Double peso,
-
-        @NotBlank
-        Convenio convenio,
 
 //        @NotBlank
 //        String idCliente
