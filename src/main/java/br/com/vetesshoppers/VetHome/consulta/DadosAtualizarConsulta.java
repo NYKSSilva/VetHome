@@ -1,24 +1,24 @@
 package br.com.vetesshoppers.VetHome.consulta;
 
-import br.com.vetesshoppers.VetHome.consulta.convenio.Convenio;
-import br.com.vetesshoppers.VetHome.consulta.servicos.Servicos;
-import br.com.vetesshoppers.VetHome.pets.especie.Especie;
-import jakarta.validation.constraints.NotBlank;
-
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public record DadosAtualizarConsulta(
 
         Long id,
 
-        Especie especie,
+        String cpfCliente,
 
         Long idPet,
 
-        LocalDateTime dataHora,
+        String servicos,
 
-        Servicos servicos,
+        String convenio,
 
-        Convenio convenio
+        LocalDate dataConsulta,
+
+        LocalTime horarioConsulta,
+
+        String idEndereco
 ) {
 }

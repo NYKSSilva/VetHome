@@ -1,8 +1,6 @@
 package br.com.vetesshoppers.VetHome.pets;
 
-import br.com.vetesshoppers.VetHome.consulta.convenio.Convenio;
-import br.com.vetesshoppers.VetHome.pets.especie.Especie;
-import br.com.vetesshoppers.VetHome.pets.sexo.Sexo;
+
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
@@ -19,10 +17,8 @@ public class Pet {
     private Long id;
     private String nome;
     private LocalDate data_nasc;
-
-    @Enumerated(EnumType.STRING)
-    private Especie especie;
-    private Sexo sexo;
+    private String especie;
+    private String sexo;
     private String raca;
     private Double peso;
     private String cpfCliente;

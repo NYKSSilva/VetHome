@@ -1,10 +1,8 @@
 package br.com.vetesshoppers.VetHome.consulta;
-
-import br.com.vetesshoppers.VetHome.consulta.convenio.Convenio;
-import br.com.vetesshoppers.VetHome.consulta.servicos.Servicos;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import org.hibernate.validator.constraints.br.CPF;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public record DadosCriarConsulta(
 
@@ -15,12 +13,21 @@ public record DadosCriarConsulta(
         Long idPet,
 
         @NotNull
-        Servicos servicos,
+        String servicos,
 
         @NotNull
-        String tipoDetalhamento,
+        String convenio,
 
         @NotNull
-        Convenio convenio
+        LocalDate
+        dataConsulta,
+
+        @NotNull
+        LocalTime
+        horarioConsulta,
+
+        @NotNull
+        String
+        idEndereco
 ) {
 }

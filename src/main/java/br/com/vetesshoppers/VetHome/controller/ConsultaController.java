@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("consulta")
+@RequestMapping("/consulta")
 @Tag(name="Consulta", description = "Gerenciamento das consultas ")
 public class ConsultaController {
 
@@ -25,13 +25,12 @@ public class ConsultaController {
     @PostMapping
     @Transactional
     public void criarConsulta(@RequestBody DadosCriarConsulta dados) {
-
         repository.save(new Consulta(dados));
     }
 
     @GetMapping
     public Page<DadosListagemConsulta> listarConsulta(@PageableDefault(size=6, sort= {"nome"}) Pageable paginacao){
-        return repository.findAllByStatusConsultaAtivaTrue(paginacao)
+        return repository.findAllByStatusConsultaPendenteTrue(paginacao)
                 .map(DadosListagemConsulta::new);
 
     }

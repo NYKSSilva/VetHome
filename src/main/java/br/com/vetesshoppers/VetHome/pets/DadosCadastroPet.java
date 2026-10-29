@@ -1,7 +1,5 @@
 package br.com.vetesshoppers.VetHome.pets;
 
-import br.com.vetesshoppers.VetHome.pets.especie.Especie;
-import br.com.vetesshoppers.VetHome.pets.sexo.Sexo;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -18,10 +16,10 @@ public record DadosCadastroPet(
         LocalDate dataNasc,
 
         @NotBlank
-        Especie especie,
+        String especie,
 
         @NotBlank
-        Sexo sexo,
+        String sexo,
 
         @NotBlank
         String raca,

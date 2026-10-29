@@ -1,13 +1,12 @@
 package br.com.vetesshoppers.VetHome.consulta;
 
-import br.com.vetesshoppers.VetHome.consulta.StatusConsulta.StatusConsulta;
-import br.com.vetesshoppers.VetHome.consulta.convenio.Convenio;
-import br.com.vetesshoppers.VetHome.consulta.servicos.Servicos;
-import br.com.vetesshoppers.VetHome.pets.especie.Especie;
+import br.com.vetesshoppers.VetHome.consulta.statusConsulta.StatusConsulta;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Table(name = "consulta")
 @Entity(name = "consulta")
@@ -19,38 +18,39 @@ import java.time.LocalDateTime;
 public class Consulta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "id")
     private int id;
-    @Enumerated(EnumType.STRING)
-    private Convenio convenio;
-    @Column(name = "especiePet")
-    private Especie especie;
-    private String cpf_cliente;
+    private String cpfCliente;
     private Long idPet;
-    //OffsetDateTIme/ Instant (melhores escolhas para tratativa de horario, talvez eu mude no futuro)
-    private LocalDateTime data_hora;
-    private Servicos servicos;
+    private String convenio;
+    private String servicos;
+    private LocalDate dataConsulta;
+    private LocalTime horarioConsulta;
+    private String idEndereco;
     @Enumerated(EnumType.STRING)
     private StatusConsulta statusConsulta;
 
     public Consulta(DadosCriarConsulta dados){
-        this.convenio = dados.convenio();
-        this.cpf_cliente = dados.cpfCliente();
+        this.cpfCliente = dados.cpfCliente();
         this.idPet = dados.idPet();
-        this.data_hora = LocalDateTime.now();
+        this.convenio = dados.convenio();
         this.servicos = dados.servicos();
-        this.statusConsulta = StatusConsulta.ativa;
+        this.dataConsulta = dados.dataConsulta();
+        this.horarioConsulta = dados.horarioConsulta();
+        this.idEndereco = dados.idEndereco();
+        this.statusConsulta = StatusConsulta.pendente;
     }
 
     public void atualizarConsulta(DadosAtualizarConsulta dados){
         if(dados.convenio() !=null)
             this.convenio = dados.convenio();
-        if(dados.especie() != null)
-            this.especie = dados.especie();
         if(dados.idPet() !=null)
             this.idPet = dados.idPet();
-        if(dados.dataHora() !=null)
-            this.data_hora = dados.dataHora();
+        if(dados.dataConsulta() !=null)
+            this.dataConsulta = dados.dataConsulta();
+        if(dados.horarioConsulta() !=null)
+            this.horarioConsulta = dados.horarioConsulta();
+        if(dados.idEndereco() !=null)
+            this.idEndereco = dados.idEndereco();
         if(dados.servicos() !=null)
             this.servicos = dados.servicos();
     }

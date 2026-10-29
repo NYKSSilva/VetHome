@@ -1,23 +1,23 @@
 package br.com.vetesshoppers.VetHome.consulta;
 
-import br.com.vetesshoppers.VetHome.consulta.StatusConsulta.StatusConsulta;
-import br.com.vetesshoppers.VetHome.consulta.convenio.Convenio;
-import br.com.vetesshoppers.VetHome.consulta.servicos.Servicos;
-import br.com.vetesshoppers.VetHome.pets.especie.Especie;
 
+import br.com.vetesshoppers.VetHome.consulta.statusConsulta.StatusConsulta;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public record DadosListagemConsulta(
-        Especie especie,
-        Convenio convenio,
         String cpfCliente,
         Long idPet,
-        LocalDateTime dataHora,
-        Servicos servicos,
+        String convenio,
+        String servicos,
+        LocalDate dataConsulta,
+        LocalTime horarioConsulta,
         StatusConsulta statusConsulta
 ) {
     public  DadosListagemConsulta(Consulta consulta){
-        this(consulta.getEspecie(),consulta.getConvenio(), consulta.getCpf_cliente(), consulta.getIdPet(), consulta.getData_hora(), consulta.getServicos(), consulta.getStatusConsulta());
+        this( consulta.getCpfCliente(),consulta.getIdPet(),consulta.getConvenio(), consulta.getServicos(), consulta.getDataConsulta(), consulta.getHorarioConsulta(), consulta.getStatusConsulta());
     }
 }
 

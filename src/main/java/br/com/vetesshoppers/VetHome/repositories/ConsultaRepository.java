@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface ConsultaRepository extends JpaRepository<Consulta, Long> {
-    Page<Consulta>findAllByStatusConsultaAtivaTrue(Pageable paginacao);
-    Optional<Consulta>findByIdAndStatusConsultaAtivaTrue(Long id);
+    Page<Consulta>findAllByStatusConsultaPendenteTrue(Pageable paginacao);
+    Optional<Consulta> findByIdAndStatusConsultaPendenteTrue(Long id);
 }

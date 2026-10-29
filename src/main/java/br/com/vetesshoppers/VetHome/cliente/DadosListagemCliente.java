@@ -13,5 +13,4 @@ public record DadosListagemCliente(
     public  DadosListagemCliente(Cliente cliente){
         this(cliente.getId(), cliente.getNome(), cliente.getEmail(), cliente.getTelefone(), cliente.getCpf(), cliente.getData_nasc());
     }
-
 }

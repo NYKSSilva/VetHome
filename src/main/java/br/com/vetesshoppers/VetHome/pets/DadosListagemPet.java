@@ -1,10 +1,9 @@
 package br.com.vetesshoppers.VetHome.pets;
 
-import br.com.vetesshoppers.VetHome.pets.especie.Especie;
 
 public record DadosListagemPet(
         String nome,
-        Especie especie,
+        String especie,
         String raca
 ) {
     public  DadosListagemPet(Pet pet){
