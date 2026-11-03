@@ -26,8 +26,9 @@ public record DadosCriarConsulta(
         LocalTime
         horarioConsulta,
 
-        @NotNull
-        String
-        idEndereco
+       @NotNull
+       String descricao_consulta
+
+//        idEndereco
 ) {
 }

@@ -14,10 +14,11 @@ public record DadosListagemConsulta(
         String servicos,
         LocalDate dataConsulta,
         LocalTime horarioConsulta,
+        String descricao_consulta,
         StatusConsulta statusConsulta
 ) {
     public  DadosListagemConsulta(Consulta consulta){
-        this( consulta.getCpfCliente(),consulta.getIdPet(),consulta.getConvenio(), consulta.getServicos(), consulta.getDataConsulta(), consulta.getHorarioConsulta(), consulta.getStatusConsulta());
+        this( consulta.getCpfCliente(),consulta.getIdPet(),consulta.getConvenio(), consulta.getServicos(), consulta.getDataConsulta(), consulta.getHorarioConsulta(), consulta.getDescricao_consulta(), consulta.getStatusConsulta());
     }
 }
 

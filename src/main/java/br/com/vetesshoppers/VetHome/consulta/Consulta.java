@@ -25,7 +25,8 @@ public class Consulta {
     private String servicos;
     private LocalDate dataConsulta;
     private LocalTime horarioConsulta;
-    private String idEndereco;
+    private String descricao_consulta;
+//    private String idEndereco;
     @Enumerated(EnumType.STRING)
     private StatusConsulta statusConsulta;
 
@@ -36,7 +37,8 @@ public class Consulta {
         this.servicos = dados.servicos();
         this.dataConsulta = dados.dataConsulta();
         this.horarioConsulta = dados.horarioConsulta();
-        this.idEndereco = dados.idEndereco();
+    this.descricao_consulta = dados.descricao_consulta();
+            //        this.idEndereco = dados.idEndereco();
         this.statusConsulta = StatusConsulta.pendente;
     }
 
@@ -49,10 +51,13 @@ public class Consulta {
             this.dataConsulta = dados.dataConsulta();
         if(dados.horarioConsulta() !=null)
             this.horarioConsulta = dados.horarioConsulta();
-        if(dados.idEndereco() !=null)
-            this.idEndereco = dados.idEndereco();
+//        if(dados.idEndereco() !=null)
+//            this.idEndereco = dados.idEndereco();
+        if(dados.descricao_consulta() !=null)
+            this.descricao_consulta = dados.descricao_consulta();
         if(dados.servicos() !=null)
             this.servicos = dados.servicos();
+
     }
 
     public void excluirConsulta(){
