@@ -2,6 +2,7 @@ package br.com.vetesshoppers.VetHome.pets;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
@@ -11,7 +12,7 @@ public record DadosCadastroPet(
         @Size(min= 3, max= 100)
         String nome,
 
-        @NotBlank
+        @NotNull
         @JsonFormat(pattern = "yyyy-MM-dd")
         LocalDate dataNasc,
 
@@ -24,7 +25,7 @@ public record DadosCadastroPet(
         @NotBlank
         String raca,
 
-        @NotBlank
+        @NotNull
         Double peso,
 
 //        @NotBlank

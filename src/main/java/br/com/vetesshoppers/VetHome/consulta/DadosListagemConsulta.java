@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public record DadosListagemConsulta(
+        Long id,
         String cpfCliente,
         Long idPet,
         String convenio,
@@ -18,7 +19,7 @@ public record DadosListagemConsulta(
         StatusConsulta statusConsulta
 ) {
     public  DadosListagemConsulta(Consulta consulta){
-        this( consulta.getCpfCliente(),consulta.getIdPet(),consulta.getConvenio(), consulta.getServicos(), consulta.getDataConsulta(), consulta.getHorarioConsulta(), consulta.getDescricao_consulta(), consulta.getStatusConsulta());
+        this(consulta.getId(), consulta.getCpfCliente(),consulta.getIdPet(),consulta.getConvenio(), consulta.getServicos(), consulta.getDataConsulta(), consulta.getHorarioConsulta(), consulta.getDescricao_consulta(), consulta.getStatusConsulta());
     }
 }
 

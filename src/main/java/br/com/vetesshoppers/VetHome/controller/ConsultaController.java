@@ -4,6 +4,7 @@ import br.com.vetesshoppers.VetHome.consulta.Consulta;
 import br.com.vetesshoppers.VetHome.consulta.DadosAtualizarConsulta;
 import br.com.vetesshoppers.VetHome.consulta.DadosCriarConsulta;
 import br.com.vetesshoppers.VetHome.consulta.DadosListagemConsulta;
+import br.com.vetesshoppers.VetHome.consulta.statusConsulta.StatusConsulta;
 import br.com.vetesshoppers.VetHome.repositories.ConsultaRepository;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -29,10 +30,11 @@ public class ConsultaController {
     }
 
     @GetMapping
-    public Page<DadosListagemConsulta> listarConsulta(@PageableDefault(size=6, sort= {"nome"}) Pageable paginacao){
-        return repository.findAllByStatusConsultaPendenteTrue(paginacao)
+    public Page<DadosListagemConsulta> listarConsulta(
+            @RequestParam String cpfCliente,
+            @PageableDefault(size = 50, sort = {"dataConsulta"}) Pageable paginacao) {
+        return repository.findAllByCpfClienteAndStatusConsulta(cpfCliente, StatusConsulta.pendente, paginacao)
                 .map(DadosListagemConsulta::new);
-
     }
 
     @PutMapping

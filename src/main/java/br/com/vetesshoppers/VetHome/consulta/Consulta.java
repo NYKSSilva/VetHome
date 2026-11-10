@@ -18,7 +18,7 @@ import java.time.LocalTime;
 public class Consulta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String cpfCliente;
     private Long idPet;
     private String convenio;
