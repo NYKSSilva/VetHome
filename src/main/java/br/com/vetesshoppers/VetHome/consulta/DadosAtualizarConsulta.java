@@ -19,7 +19,8 @@ public record DadosAtualizarConsulta(
 
         LocalTime horarioConsulta,
 
-        String descricao_consulta
-//        String idEndereco
+        String descricao_consulta,
+
+        Long idEndereco
 ) {
 }

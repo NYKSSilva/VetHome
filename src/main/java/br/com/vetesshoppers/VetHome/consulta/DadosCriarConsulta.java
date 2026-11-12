@@ -27,8 +27,10 @@ public record DadosCriarConsulta(
         horarioConsulta,
 
        @NotNull
-       String descricao_consulta
+       String descricao_consulta,
 
-//        idEndereco
+        @NotNull
+        Long
+        idEndereco
 ) {
 }
